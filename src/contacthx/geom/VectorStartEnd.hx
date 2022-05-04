@@ -25,7 +25,7 @@ class VectorStartEnd {
         return Math.sqrt( Math.pow( a, 2 ) + Math.pow( b, 2 ) );
     }
     private inline function calculateDirection(): EgocentricCoordinates {
-        retun if( Math.abs (deltaX ) > Math.abs( deltaY ) ){
+        return if( Math.abs (deltaX ) > Math.abs( deltaY ) ){
             // left or right
             ( start.x < end.x )? RIGHT: LEFT;
          else {
