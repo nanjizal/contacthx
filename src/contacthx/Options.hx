@@ -1,7 +1,7 @@
 package contacthx;
 
 import contacthx.PointerFunction;
-import contacthx.gesture.Gestures;
+import contacthx.gesture.Gesture;
 
 @:StructInit
 class Options {
@@ -10,7 +10,7 @@ class Options {
      * supportedGestures 	Array[]
      * items can be gesture classes or instances of gesture classes 
      */
-    public var supportedGestures: Array<Gestures>;
+    public var supportedGestures: Array<Gesture>;
     /**
      *  Turn event bubbling on or off. 
      */
@@ -38,7 +38,7 @@ class Options {
      */
     public var DEBUG_CONTACT:     Bool;	
 
-    public function new( supportedGestures: Array<Gestures>
+    public function new( supportedGestures: Array<Gesture>
                        , bubbles:           Bool = false
                        , handTouchEvents:   Bool = false
                        , pointerDown:       PointerFunction = null
@@ -49,11 +49,10 @@ class Options {
                        , DEBUG:             Bool = false
                        , DEBUG_GESTURES:    Bool = false
                        , DEBUG_CONTACT:     Bool = false ){
-        this.supportedGestures = Array<Gestures>;
+        this.supportedGestures = supportedGestures;
         this.bubbles           = bubbles;
         this.handleTouchEvents = handTouchEvents;
         this.pointerDown       = pointerDown;
-        this.pointerMouse      = pointerMouse;
         this.pointerMove       = pointerMove;
         this.pointerUp         = pointerUp;
         this.pointerOut        = pointerOut;

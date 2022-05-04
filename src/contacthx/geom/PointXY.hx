@@ -1,6 +1,6 @@
 package contacthx.geom;
 
-@:StructInit
+@:structInit
 class PointXY {
     public var x: Float;
     public var y: Float;

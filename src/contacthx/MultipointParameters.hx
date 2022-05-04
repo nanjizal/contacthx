@@ -2,7 +2,7 @@ package contacthx;
 import contacthx.geom.VectorStartEnd;
 
 @:StructInit
-class MultipointParameters {
+class MultipointerParameters {
     public var centerMovement:         Float;
     public var centerMovementVector:   VectorStartEnd;
     public var distanceChange:         Float;

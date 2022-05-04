@@ -1,0 +1,6 @@
+# this line not working??
+#-cmd haxe generate.hxml
+
+-cmd haxelib run dox -i output.xml --title "contacthx API documentation" -D themeColor 0xe36be --toplevel-package contacthx
+-cmd cd pages
+-cmd open index.html

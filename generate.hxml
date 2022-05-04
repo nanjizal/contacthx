@@ -1,0 +1,8 @@
+-D contacthxDoc
+-D doc-gen
+--macro include('contacthx')
+-cp src
+-main contacthx.doc.ContacthxDoc
+--no-output
+-xml output.xml
+-js foo

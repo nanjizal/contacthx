@@ -10,49 +10,49 @@ package contacthx;
  * - start and end timestamps
  * - speeds and distances
  */
-class PointerInput {
-    var options: ;
-    var debug: Bool;
-    var 
-    public function new( pointerdownEvent, options ) {
-        
-    }
-    public function onIdle(){
-
-
-    }
-
-    public function onMove( pointermoveEvent ) {
-        
-    }
-
-    public function onUp( pointerupEvent ){
-
-
-    }
-
-    public function onCancel( pointercancelEvent ){
-
-
-    }
-
-    public function update( pointerEvent ) {
-        
-    }
-
-    public function getTimedPointerEvents(): PointerEvents {
-
-
-    }
-
-    public function getVector( startPointerEvent, endPointEvent ): VectorStartEnd {
-        
-    }
-
-    public function getSpeed( vector: VectorStartEnd, startTimeStamp: Int, endTimeStamp: Int ): Float {
-        
-    }
-
-
-
-}
+ import contacthx.Options;
+ import contacthx.geom.VectorStartEnd;
+ class PointerInput {
+     var options: Options;
+     var debug: Bool;
+     // TODO: yet to implement
+     public function new( pointerdownEvent: PointerEvent, options:Options ) {
+         
+     }
+     public function onIdle(){
+ 
+ 
+     }
+ 
+     public function onMove( pointermoveEvent: PointerEvent ) {
+         
+     }
+ 
+     public function onUp( pointerupEvent: PointerEvent ){
+ 
+ 
+     }
+ 
+     public function onCancel( pointercancelEvent: PointerEvent ){
+ 
+ 
+     }
+ 
+     public function update( pointerEvent ) {
+         
+     }
+ 
+     public function getTimedPointerEvents(): PointerEvent {
+         return null;
+ 
+     }
+ 
+     public function getVector( startPointerEvent: PointerEvent, endPointEvent: PointerEvent ): VectorStartEnd {
+         return null;
+     }
+ 
+     public function getSpeed( vector: VectorStartEnd, startTimeStamp: Int, endTimeStamp: Int ): Float {
+         return 0.;
+     }
+ 
+ }

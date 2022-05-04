@@ -3,7 +3,7 @@ import contacthx.direction.EgocentricCoordinates;
 import contacthx.direction.EgocentricCoordinates;
 import contacthx.geom.PointXY;
 
-@:StructInit
+@:structInit
 class VectorStartEnd {
     public var start:        PointXY;
     public var end:          PointXY;
@@ -17,7 +17,7 @@ class VectorStartEnd {
         this.end   = end;
         deltaX = end.x - start.x;
         deltaY = end.y - start.y;
-        xy = { deltaX, deltaY };
+        xy = cast { x: deltaX, y: deltaY };
         vectorLength = hypotenuse( deltaX, deltaY );
         direction = calculateDirection();
     }
@@ -28,7 +28,7 @@ class VectorStartEnd {
         return if( Math.abs (deltaX ) > Math.abs( deltaY ) ){
             // left or right
             ( start.x < end.x )? RIGHT: LEFT;
-         else {
+        } else {
             // up or down
             ( start.y < end.y )? DOWN: UP;
         }
