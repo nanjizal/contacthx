@@ -1,6 +1,6 @@
 package contacthx.geom;
 
-@:StructInit
+@:structInit
 class DistanceChange {
     public var absolute: Float;
     public var relative: Float;

@@ -295,7 +295,10 @@
 	supported consistently. Some targets may support dates outside this range,
 	depending on the OS at runtime. The `Date.fromTime` method will not work with
 	timestamps outside the range on any target.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<class path="js.lib.RegExp" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/js/lib/RegExp.hx" extern="1">
 		<global public="1" set="null">
@@ -823,16 +826,32 @@
 	<x path="Float"/>
 	<x path="Float"/>
 </f></abs>
+		<acos public="1" set="method" static="1"><f a="v">
+	<x path="Float"/>
+	<x path="Float"/>
+</f></acos>
 		<atan2 public="1" set="method" static="1"><f a="y:x">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 </f></atan2>
+		<cos public="1" set="method" static="1"><f a="v">
+	<x path="Float"/>
+	<x path="Float"/>
+</f></cos>
 		<pow public="1" set="method" static="1"><f a="v:exp">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 </f></pow>
+		<round public="1" set="method" static="1"><f a="v">
+	<x path="Float"/>
+	<x path="Int"/>
+</f></round>
+		<sin public="1" set="method" static="1"><f a="v">
+	<x path="Float"/>
+	<x path="Float"/>
+</f></sin>
 		<sqrt public="1" set="method" static="1"><f a="v">
 	<x path="Float"/>
 	<x path="Float"/>
@@ -1201,6 +1220,94 @@
 	abstract types.
 
 	@see https://haxe.org/manual/types-abstract-array-access.html</haxe_doc></class>
+	<class path="contacthx.ContactHX" params="" file="src/contacthx/Contact.hx" module="contacthx.Contact">
+		<options><c path="contacthx.Options"/></options>
+		<pointerInputs expr="new IntMap&lt;PointerInput&gt;()">
+			<c path="haxe.ds.IntMap"><c path="contacthx.PointerInput"/></c>
+			<meta><m n=":value"><e><![CDATA[new IntMap<PointerInput>()]]></e></m></meta>
+		</pointerInputs>
+		<debug><x path="Bool"/></debug>
+		<id><x path="Float"/></id>
+		<activePointerInputs expr="new IntMap&lt;PointerInput&gt;()">
+			<c path="haxe.ds.IntMap"><c path="contacthx.PointerInput"/></c>
+			<meta><m n=":value"><e><![CDATA[new IntMap<PointerInput>()]]></e></m></meta>
+		</activePointerInputs>
+		<primaryPointerId><x path="Int"/></primaryPointerId>
+		<initialPointerEvent><c path="contacthx.PointerEvent"/></initialPointerEvent>
+		<currentPointerEvent><c path="contacthx.PointerEvent"/></currentPointerEvent>
+		<isActive><x path="Bool"/></isActive>
+		<startTimestamp><x path="Float"/></startTimestamp>
+		<currentTimestamp><x path="Float"/></currentTimestamp>
+		<endTimestamp><x path="Float"/></endTimestamp>
+		<multipointer><c path="contacthx.MultiPointer"/></multipointer>
+		<addPointer public="1" set="method" line="59"><f a="pointerdownEvent">
+	<c path="contacthx.PointerEvent"/>
+	<x path="Void"/>
+</f></addPointer>
+		<removePointer public="1" set="method" line="66"><f a="pointerId">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></removePointer>
+		<getPointerIntput public="1" set="method" line="70"><f a="pointerId">
+	<x path="Int"/>
+	<x path="Null"><c path="contacthx.PointerInput"/></x>
+</f></getPointerIntput>
+		<getPrimaryPointerInput public="1" set="method" line="81"><f a=""><c path="contacthx.PointerInput"/></f></getPrimaryPointerInput>
+		<getMultiPointerInputs public="1" set="method" line="85">
+			<f a="?no" v="2">
+				<x path="Int"/>
+				<c path="Array"><c path="contacthx.PointerInput"/></c>
+			</f>
+			<meta><m n=":value"><e>{ no : 2 }</e></m></meta>
+		</getMultiPointerInputs>
+		<onPointerMove public="1" set="method" line="102"><f a="pointerMoveEvent">
+	<c path="contacthx.PointerEvent"/>
+	<x path="Void"/>
+</f></onPointerMove>
+		<onPointerUp public="1" set="method" line="113">
+			<f a="pointerUpEvent">
+				<c path="contacthx.PointerEvent"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* pointerup event: finger released, or mouse button released</haxe_doc>
+		</onPointerUp>
+		<onPointerCancel public="1" set="method" line="123"><f a="pointerCancelEvent">
+	<c path="contacthx.PointerEvent"/>
+	<x path="Void"/>
+</f></onPointerCancel>
+		<onPointerLeave public="1" set="method" line="129"><f a="pointerLeaveEvent">
+	<c path="contacthx.PointerEvent"/>
+	<x path="Void"/>
+</f></onPointerLeave>
+		<onIdle public="1" set="method" line="136"><f a=""><x path="Void"/></f></onIdle>
+		<updateState public="1" set="method" line="140"><f a=""><x path="Void"/></f></updateState>
+		<updateMultiPointerParameters public="1" set="method" line="145"><f a=""><x path="Void"/></f></updateMultiPointerParameters>
+		<calculateCenterMovement public="1" set="method" line="150"><f a="v1:v2">
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<c path="contacthx.geom.VectorStartEnd"/>
+</f></calculateCenterMovement>
+		<calculateDistanceChange public="1" set="method" line="157"><f a="v1:v2">
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<c path="contacthx.geom.DistanceChange"/>
+</f></calculateDistanceChange>
+		<calculateRotationAngle public="1" set="method" line="179"><f a="v1:v2">
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<x path="contacthx.geom.Degree"/>
+</f></calculateRotationAngle>
+		<calculateVectorAngle public="1" set="method" line="236"><f a="v1:v2">
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<c path="contacthx.geom.VectorStartEnd"/>
+	<x path="contacthx.geom.Degree"/>
+</f></calculateVectorAngle>
+		<new public="1" set="method" line="29"><f a="pointerDownEvent:options">
+	<c path="contacthx.PointerEvent"/>
+	<c path="contacthx.Options"/>
+	<x path="Void"/>
+</f></new>
+	</class>
 	<class path="contacthx.MultiPointer" params="" file="src/contacthx/MultiPointer.hx">
 		<liveParameter public="1"><c path="contacthx.MultipointerParameters"/></liveParameter>
 		<globalParameter public="1"><c path="contacthx.MultipointerParameters"/></globalParameter>
@@ -1922,6 +2029,56 @@
 		<new public="1" set="method" line="11"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
+	<abstract path="contacthx.geom.Degree" params="" file="src/contacthx/geom/Degree.hx">
+		<from>
+			<icast><x path="Float"/></icast>
+			<icast field="rad2deg"><x path="contacthx.geom.Radian"/></icast>
+		</from>
+		<this><x path="Float"/></this>
+		<to><icast><x path="Float"/></icast></to>
+		<meta>
+			<m n=":transitive"/>
+			<m n=":forward"/>
+		</meta>
+		<impl><class path="contacthx.geom._Degree.Degree_Impl_" params="" file="src/contacthx/geom/Degree.hx" private="1" module="contacthx.geom.Degree" final="1">
+	<_new public="1" get="inline" set="null" line="6" static="1">
+		<f a="deg">
+			<x path="Float"/>
+			<x path="contacthx.geom.Degree"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<rad2deg public="1" get="inline" set="null" line="10" static="1">
+		<f a="angleRad">
+			<x path="contacthx.geom.Radian"/>
+			<x path="contacthx.geom.Degree"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</rad2deg>
+</class></impl>
+	</abstract>
+	<class path="contacthx.geom._Degree.Degree_Impl_" params="" file="src/contacthx/geom/Degree.hx" private="1" module="contacthx.geom.Degree" final="1">
+		<_new public="1" get="inline" set="null" line="6" static="1">
+			<f a="deg">
+				<x path="Float"/>
+				<x path="contacthx.geom.Degree"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<rad2deg public="1" get="inline" set="null" line="10" static="1">
+			<f a="angleRad">
+				<x path="contacthx.geom.Radian"/>
+				<x path="contacthx.geom.Degree"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</rad2deg>
+	</class>
 	<class path="contacthx.geom.DistanceChange" params="" file="src/contacthx/geom/DistanceChanged.hx" module="contacthx.geom.DistanceChanged">
 		<absolute public="1"><x path="Float"/></absolute>
 		<relative public="1"><x path="Float"/></relative>
@@ -1930,39 +2087,25 @@
 	<x path="Float"/>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":StructInit"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":structInit"/>
+		</meta>
 	</class>
-	<class path="contacthx.geom.Helpers" params="" file="src/contacthx/geom/Helper.hx" module="contacthx.geom.Helper">
-		<deg2rad public="1" get="inline" set="null" line="8" static="1"><f a="angleDeg">
-	<x path="Float"/>
-	<x path="Float"/>
-</f></deg2rad>
-		<rad2deg public="1" get="inline" set="null" line="13" static="1"><f a="angleRad">
-	<x path="Float"/>
-	<x path="Float"/>
-</f></rad2deg>
-		<getCenter public="1" get="inline" set="null" line="18" static="1"><f a="pointA:pointB">
+	<class path="contacthx.geom.PointXY" params="" file="src/contacthx/geom/PointXY.hx">
+		<getCenter public="1" get="inline" set="null" line="31" static="1"><f a="a:b">
 	<c path="contacthx.geom.PointXY"/>
 	<c path="contacthx.geom.PointXY"/>
 	<c path="contacthx.geom.PointXY"/>
 </f></getCenter>
-		<translatePoint public="1" get="inline" set="null" line="25" static="1"><f a="point:vector">
-	<c path="contacthx.geom.PointXY"/>
+		<x public="1"><x path="Float"/></x>
+		<y public="1"><x path="Float"/></y>
+		<calcAngleDegrees public="1" get="inline" set="null" line="14"><f a=""><x path="Float"/></f></calcAngleDegrees>
+		<calcAngleRad public="1" get="inline" set="null" line="21"><f a=""><x path="Float"/></f></calcAngleRad>
+		<translatePoint public="1" get="inline" set="null" line="27"><f a="v">
 	<c path="contacthx.geom.VectorStartEnd"/>
 	<c path="contacthx.geom.PointXY"/>
 </f></translatePoint>
-		<calcAngleDegrees public="1" get="inline" set="null" line="35" static="1"><f a="point">
-	<c path="contacthx.geom.PointXY"/>
-	<x path="Float"/>
-</f></calcAngleDegrees>
-		<calcAngleRad public="1" get="inline" set="null" line="42" static="1"><f a="point">
-	<c path="contacthx.geom.PointXY"/>
-	<x path="Float"/>
-</f></calcAngleRad>
-	</class>
-	<class path="contacthx.geom.PointXY" params="" file="src/contacthx/geom/PointXY.hx">
-		<x public="1"><x path="Float"/></x>
-		<y public="1"><x path="Float"/></y>
 		<new public="1" set="method" line="7"><f a="x:y">
 	<x path="Float"/>
 	<x path="Float"/>
@@ -1973,12 +2116,62 @@
 			<m n=":structInit"/>
 		</meta>
 	</class>
+	<abstract path="contacthx.geom.Radian" params="" file="src/contacthx/geom/Radian.hx">
+		<from>
+			<icast><x path="Float"/></icast>
+			<icast field="deg2rad"><x path="contacthx.geom.Degree"/></icast>
+		</from>
+		<this><x path="Float"/></this>
+		<to><icast><x path="Float"/></icast></to>
+		<meta>
+			<m n=":transitive"/>
+			<m n=":forward"/>
+		</meta>
+		<impl><class path="contacthx.geom._Radian.Radian_Impl_" params="" file="src/contacthx/geom/Radian.hx" private="1" module="contacthx.geom.Radian" final="1">
+	<_new public="1" get="inline" set="null" line="6" static="1">
+		<f a="rad">
+			<x path="Float"/>
+			<x path="contacthx.geom.Radian"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<deg2rad public="1" get="inline" set="null" line="10" static="1">
+		<f a="angleDeg">
+			<x path="contacthx.geom.Degree"/>
+			<x path="contacthx.geom.Radian"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</deg2rad>
+</class></impl>
+	</abstract>
+	<class path="contacthx.geom._Radian.Radian_Impl_" params="" file="src/contacthx/geom/Radian.hx" private="1" module="contacthx.geom.Radian" final="1">
+		<_new public="1" get="inline" set="null" line="6" static="1">
+			<f a="rad">
+				<x path="Float"/>
+				<x path="contacthx.geom.Radian"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<deg2rad public="1" get="inline" set="null" line="10" static="1">
+			<f a="angleDeg">
+				<x path="contacthx.geom.Degree"/>
+				<x path="contacthx.geom.Radian"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</deg2rad>
+	</class>
 	<class path="contacthx.geom.VectorStartEnd" params="" file="src/contacthx/geom/VectorStartEnd.hx">
 		<start public="1"><c path="contacthx.geom.PointXY"/></start>
 		<end public="1"><c path="contacthx.geom.PointXY"/></end>
 		<direction public="1"><x path="contacthx.direction.EgocentricCoordinates"/></direction>
-		<deltaX public="1"><x path="Float"/></deltaX>
-		<deltaY public="1"><x path="Float"/></deltaY>
+		<x public="1"><x path="Float"/></x>
+		<y public="1"><x path="Float"/></y>
 		<xy public="1"><c path="contacthx.geom.PointXY"/></xy>
 		<vectorLength public="1"><x path="Float"/></vectorLength>
 		<hypotenuse get="inline" set="null" line="24"><f a="a:b">
@@ -1987,12 +2180,16 @@
 	<x path="Float"/>
 </f></hypotenuse>
 		<calculateDirection get="inline" set="null" line="27"><f a=""><x path="contacthx.direction.EgocentricCoordinates"/></f></calculateDirection>
+		<magnitudeNotZero public="1" get="inline" set="null" line="36"><f a=""><x path="Bool"/></f></magnitudeNotZero>
 		<new public="1" set="method" line="15"><f a="start:end">
 	<c path="contacthx.geom.PointXY"/>
 	<c path="contacthx.geom.PointXY"/>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":structInit"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":structInit"/>
+		</meta>
 	</class>
 	<abstract path="contacthx.gesture.Gesture" params="" file="src/contacthx/gesture/Gesture.hx">
 		<from><icast><c path="String"/></icast></from>
@@ -2199,6 +2396,7 @@
 	type, the underlying type will be `Dynamic`.]]></haxe_doc>
 		<impl><class path="haxe._Constraints.Constructible_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/Constraints.hx" private="1" module="haxe.Constraints" final="1"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<class path="haxe.IMap" params="K:V" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/Constraints.hx" module="haxe.Constraints" interface="1"><meta><m n=":keep"/></meta></class>
 	<abstract path="haxe.DynamicAccess" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/DynamicAccess.hx">
 		<from><icast><d><c path="haxe.DynamicAccess.T"/></d></icast></from>
 		<this><d><c path="haxe.DynamicAccess.T"/></d></this>
@@ -2387,6 +2585,908 @@
 	<getFileName set="method"><f a=""><c path="String"/></f></getFileName>
 	<getColumnNumber set="method"><f a=""><x path="Int"/></f></getColumnNumber>
 </a></typedef>
+	<typedef path="haxe.display.CompletionParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<wasAutoTriggered><x path="Bool"/></wasAutoTriggered>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<meta>
+				<x path="Null"><c path="Array"><c path="String"/></c></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>list of metas to include in responses</haxe_doc>
+			</meta>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>Completion</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.FieldResolution" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<qualifier>
+		<c path="String"/>
+		<haxe_doc>The qualifier that has to be inserted to use the field if `!isQualified`.
+		Can either be `this` or `super` for instance fields for the type name for `static` fields.</haxe_doc>
+	</qualifier>
+	<isQualified>
+		<x path="Bool"/>
+		<haxe_doc>Whether it's valid to use the unqualified name of the field or not.
+		This is `false` if the identifier is shadowed.</haxe_doc>
+	</isQualified>
+</a></typedef>
+	<typedef path="haxe.display.DisplayLocal" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<type><t path="haxe.display.JsonType"><c path="haxe.display.DisplayLocal.T"/></t></type>
+	<pos><t path="haxe.display.JsonPos"/></pos>
+	<origin><x path="haxe.display.LocalOrigin"/></origin>
+	<name><c path="String"/></name>
+	<meta><t path="haxe.display.JsonMetadata"/></meta>
+	<isInline><x path="Bool"/></isInline>
+	<isFinal><x path="Bool"/></isFinal>
+	<id><x path="Int"/></id>
+	<extra>
+		<x path="Null"><a>
+	<params><c path="Array"><t path="haxe.display.JsonTypeParameter"/></c></params>
+	<expr><t path="haxe.display.JsonExpr"/></expr>
+</a></x>
+		<meta><m n=":optional"/></meta>
+	</extra>
+	<capture><x path="Bool"/></capture>
+</a></typedef>
+	<abstract path="haxe.display.LocalOrigin" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.LocalOrigin_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<abstract path="haxe.display.ClassFieldOriginKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.ClassFieldOriginKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.ClassFieldOrigin" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<kind><x path="haxe.display.ClassFieldOriginKind"><c path="haxe.display.ClassFieldOrigin.T"/></x></kind>
+	<args>
+		<x path="Null"><c path="haxe.display.ClassFieldOrigin.T"/></x>
+		<meta><m n=":optional"/></meta>
+	</args>
+</a></typedef>
+	<typedef path="haxe.display.ClassFieldOccurrence" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<resolution><t path="haxe.display.FieldResolution"/></resolution>
+	<origin>
+		<x path="Null"><t path="haxe.display.ClassFieldOrigin"><c path="haxe.display.ClassFieldOccurrence.T"/></t></x>
+		<meta><m n=":optional"/></meta>
+	</origin>
+	<field><t path="haxe.display.JsonClassField"/></field>
+</a></typedef>
+	<abstract path="haxe.display.EnumFieldOriginKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.EnumFieldOriginKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.EnumFieldOrigin" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<kind><x path="haxe.display.EnumFieldOriginKind"><c path="haxe.display.EnumFieldOrigin.T"/></x></kind>
+	<args>
+		<x path="Null"><c path="haxe.display.EnumFieldOrigin.T"/></x>
+		<meta><m n=":optional"/></meta>
+	</args>
+</a></typedef>
+	<typedef path="haxe.display.EnumFieldOccurrence" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<resolution><t path="haxe.display.FieldResolution"/></resolution>
+	<origin>
+		<x path="Null"><t path="haxe.display.EnumFieldOrigin"><c path="haxe.display.EnumFieldOccurrence.T"/></t></x>
+		<meta><m n=":optional"/></meta>
+	</origin>
+	<field><t path="haxe.display.JsonEnumField"/></field>
+</a></typedef>
+	<abstract path="haxe.display.Literal" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.Literal_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<abstract path="haxe.display.DisplayModuleTypeKind" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.DisplayModuleTypeKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.DisplayModuleType" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<pos><t path="haxe.display.JsonPos"/></pos>
+	<path><t path="haxe.display.JsonTypePath"/></path>
+	<params><c path="Array"><t path="haxe.display.DisplayModuleTypeParameter"/></c></params>
+	<meta><t path="haxe.display.JsonMetadata"/></meta>
+	<kind><x path="haxe.display.DisplayModuleTypeKind"/></kind>
+	<isPrivate><x path="Bool"/></isPrivate>
+	<isFinal><x path="Bool"/></isFinal>
+	<isExtern><x path="Bool"/></isExtern>
+	<doc><t path="haxe.display.JsonDoc"/></doc>
+</a></typedef>
+	<typedef path="haxe.display.DisplayModuleTypeParameter" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<name><c path="String"/></name>
+	<meta><t path="haxe.display.JsonMetadata"/></meta>
+	<constraints><c path="Array"><t path="haxe.display.JsonType"><d/></t></c></constraints>
+</a></typedef>
+	<typedef path="haxe.display.DisplayLiteral" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a><name><c path="String"/></name></a></typedef>
+	<abstract path="haxe.display.MetadataTarget" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.MetadataTarget_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<abstract path="haxe.display.Platform" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.Platform_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.Metadata" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<targets><c path="Array"><x path="haxe.display.MetadataTarget"/></c></targets>
+	<platforms><c path="Array"><x path="haxe.display.Platform"/></c></platforms>
+	<parameters><c path="Array"><c path="String"/></c></parameters>
+	<name><c path="String"/></name>
+	<links>
+		<x path="Null"><c path="Array"><c path="String"/></c></x>
+		<meta><m n=":optional"/></meta>
+	</links>
+	<internal><x path="Bool"/></internal>
+	<doc><t path="haxe.display.JsonDoc"/></doc>
+</a></typedef>
+	<typedef path="haxe.display.Define" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<value><x path="Null"><c path="String"/></x></value>
+	<platforms><c path="Array"><x path="haxe.display.Platform"/></c></platforms>
+	<parameters><c path="Array"><c path="String"/></c></parameters>
+	<name><c path="String"/></name>
+	<links><c path="Array"><c path="String"/></c></links>
+	<doc><t path="haxe.display.JsonDoc"/></doc>
+</a></typedef>
+	<typedef path="haxe.display.Keyword" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a><name><x path="haxe.display.KeywordKind"/></name></a></typedef>
+	<abstract path="haxe.display.KeywordKind" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.KeywordKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.Package" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a><path><t path="haxe.display.JsonPackagePath"/></path></a></typedef>
+	<typedef path="haxe.display.Module" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a><path><t path="haxe.display.JsonModulePath"/></path></a></typedef>
+	<abstract path="haxe.display.DisplayItemKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.DisplayItemKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.DisplayItem" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<type>
+		<x path="Null"><t path="haxe.display.JsonType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</type>
+	<kind><x path="haxe.display.DisplayItemKind"><c path="haxe.display.DisplayItem.T"/></x></kind>
+	<index>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+	</index>
+	<args><c path="haxe.display.DisplayItem.T"/></args>
+</a></typedef>
+	<typedef path="haxe.display.DisplayItemOccurrence" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<range><t path="haxe.display.Range"/></range>
+	<moduleTypeFollowed>
+		<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</moduleTypeFollowed>
+	<moduleType>
+		<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</moduleType>
+	<item><t path="haxe.display.DisplayItem"><c path="haxe.display.DisplayItemOccurrence.T"/></t></item>
+</a></typedef>
+	<typedef path="haxe.display.FieldCompletionSubject" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<range><t path="haxe.display.Range"/></range>
+	<moduleTypeFollowed>
+		<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</moduleTypeFollowed>
+	<moduleType>
+		<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</moduleType>
+	<keyValueIterator>
+		<x path="Null"><a>
+	<value><t path="haxe.display.JsonType"><d/></t></value>
+	<key><t path="haxe.display.JsonType"><d/></t></key>
+</a></x>
+		<meta><m n=":optional"/></meta>
+	</keyValueIterator>
+	<iterator>
+		<x path="Null"><a><type><t path="haxe.display.JsonType"><d/></t></type></a></x>
+		<meta><m n=":optional"/></meta>
+	</iterator>
+	<item><t path="haxe.display.DisplayItem"><c path="haxe.display.FieldCompletionSubject.T"/></t></item>
+</a></typedef>
+	<typedef path="haxe.display.ToplevelCompletion" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<expectedTypeFollowed>
+		<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.ToplevelCompletion.T"/></t></x>
+		<meta><m n=":optional"/></meta>
+	</expectedTypeFollowed>
+	<expectedType>
+		<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.ToplevelCompletion.T"/></t></x>
+		<meta><m n=":optional"/></meta>
+	</expectedType>
+</a></typedef>
+	<typedef path="haxe.display.StructExtensionCompletion" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a><isIntersectionType><x path="Bool"/></isIntersectionType></a></typedef>
+	<typedef path="haxe.display.PatternCompletion" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<isOutermostPattern><x path="Bool"/></isOutermostPattern>
+	<expectedTypeFollowed>
+		<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.PatternCompletion.T"/></t></x>
+		<meta><m n=":optional"/></meta>
+	</expectedTypeFollowed>
+	<expectedType>
+		<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.PatternCompletion.T"/></t></x>
+		<meta><m n=":optional"/></meta>
+	</expectedType>
+</a></typedef>
+	<abstract path="haxe.display.CompletionModeKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.CompletionModeKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.CompletionMode" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<kind><x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionMode.T"/></x></kind>
+	<args>
+		<x path="Null"><c path="haxe.display.CompletionMode.T"/></x>
+		<meta><m n=":optional"/></meta>
+	</args>
+</a></typedef>
+	<typedef path="haxe.display.CompletionResponse" params="T1:T2" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<replaceRange>
+		<x path="Null"><t path="haxe.display.Range"/></x>
+		<meta><m n=":optional"/></meta>
+	</replaceRange>
+	<mode><t path="haxe.display.CompletionMode"><c path="haxe.display.CompletionResponse.T2"/></t></mode>
+	<items><c path="Array"><t path="haxe.display.DisplayItem"><c path="haxe.display.CompletionResponse.T1"/></t></c></items>
+	<isIncomplete>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</isIncomplete>
+	<filterString>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</filterString>
+</a></typedef>
+	<typedef path="haxe.display.CompletionResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><t path="haxe.display.Response"><x path="Null"><t path="haxe.display.CompletionResponse">
+	<d/>
+	<d/>
+</t></x></t></typedef>
+	<typedef path="haxe.display.CompletionItemResolveParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a><index><x path="Int"/></index></a>
+		<haxe_doc>CompletionItem Resolve</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.CompletionItemResolveResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><t path="haxe.display.Response"><a><item><t path="haxe.display.DisplayItem"><d/></t></item></a></t></typedef>
+	<typedef path="haxe.display.FindReferencesParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<kind>
+				<x path="Null"><x path="haxe.display.FindReferencesKind"/></x>
+				<meta><m n=":optional"/></meta>
+			</kind>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>FindReferences</haxe_doc>
+	</typedef>
+	<abstract path="haxe.display.FindReferencesKind" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.FindReferencesKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.GotoDefinitionResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.Location"/></c></t>
+		<haxe_doc>GotoDefinition</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.GotoTypeDefinitionResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.Location"/></c></t>
+		<haxe_doc>GotoTypeDefinition</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.HoverResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><x path="Null"><t path="haxe.display.HoverDisplayItemOccurence"><d/></t></x></t>
+		<haxe_doc>Hover</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.HoverDisplayItemOccurence" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<range><t path="haxe.display.Range"/></range>
+	<moduleTypeFollowed>
+		<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</moduleTypeFollowed>
+	<moduleType>
+		<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</moduleType>
+	<item><t path="haxe.display.DisplayItem"><c path="haxe.display.HoverDisplayItemOccurence.T"/></t></item>
+	<expected>
+		<x path="Null"><a>
+	<type>
+		<x path="Null"><t path="haxe.display.JsonType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</type>
+	<name>
+		<x path="Null"><a>
+	<name><c path="String"/></name>
+	<kind><x path="haxe.display.HoverExpectedNameKind"/></kind>
+</a></x>
+		<meta><m n=":optional"/></meta>
+	</name>
+</a></x>
+		<meta><m n=":optional"/></meta>
+	</expected>
+</a></typedef>
+	<abstract path="haxe.display.HoverExpectedNameKind" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.HoverExpectedNameKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.DeterminePackageResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><c path="Array"><c path="String"/></c></t>
+		<haxe_doc>DeterminePackage</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.SignatureHelpParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<wasAutoTriggered><x path="Bool"/></wasAutoTriggered>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>SignatureHelp</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.SignatureInformation" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<ret><t path="haxe.display.JsonType"><d/></t></ret>
+	<documentation>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</documentation>
+	<args><c path="Array"><t path="haxe.display.JsonFunctionArgument"/></c></args>
+</a></typedef>
+	<abstract path="haxe.display.SignatureItemKind" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Display.SignatureItemKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.SignatureItem" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<signatures><c path="Array"><t path="haxe.display.SignatureInformation"/></c></signatures>
+	<kind><x path="haxe.display.SignatureItemKind"/></kind>
+	<activeSignature><x path="Int"/></activeSignature>
+	<activeParameter><x path="Int"/></activeParameter>
+</a></typedef>
+	<typedef path="haxe.display.SignatureHelpResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display"><t path="haxe.display.Response"><x path="Null"><t path="haxe.display.SignatureItem"/></x></t></typedef>
+	<typedef path="haxe.display.PositionParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>General types</haxe_doc>
+	</typedef>
+	<abstract path="haxe.display.FsPath" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/FsPath.hx">
+		<this><c path="String"/></this>
+		<impl><class path="haxe.display._FsPath.FsPath_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/FsPath.hx" private="1" module="haxe.display.FsPath" final="1"><meta><m n=":keep"/></meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonTodo" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><d/></typedef>
+	<typedef path="haxe.display.JsonPos" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<min><x path="Int"/></min>
+	<max><x path="Int"/></max>
+	<file><c path="String"/></file>
+</a></typedef>
+	<typedef path="haxe.display.JsonDoc" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><x path="Null"><c path="String"/></x></typedef>
+	<abstract path="haxe.display.ImportStatus" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.ImportStatus_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonPackagePath" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a><pack><c path="Array"><c path="String"/></c></pack></a></typedef>
+	<typedef path="haxe.display.JsonModulePath" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<pack><c path="Array"><c path="String"/></c></pack>
+	<moduleName><c path="String"/></moduleName>
+	<importStatus>
+		<x path="Null"><x path="haxe.display.ImportStatus"/></x>
+		<meta><m n=":optional"/></meta>
+	</importStatus>
+</a></typedef>
+	<typedef path="haxe.display.JsonTypePath" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<typeName><c path="String"/></typeName>
+	<pack><c path="Array"><c path="String"/></c></pack>
+	<moduleName><c path="String"/></moduleName>
+	<importStatus>
+		<x path="Null"><x path="haxe.display.ImportStatus"/></x>
+		<meta><m n=":optional"/></meta>
+	</importStatus>
+</a></typedef>
+	<typedef path="haxe.display.JsonStaticFieldPath" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<typeName><c path="String"/></typeName>
+	<pack><c path="Array"><c path="String"/></c></pack>
+	<moduleName><c path="String"/></moduleName>
+	<importStatus>
+		<x path="Null"><x path="haxe.display.ImportStatus"/></x>
+		<meta><m n=":optional"/></meta>
+	</importStatus>
+	<fieldName><c path="String"/></fieldName>
+</a></typedef>
+	<typedef path="haxe.display.JsonTypePathWithParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<path><t path="haxe.display.JsonTypePath"/></path>
+	<params><t path="haxe.display.JsonTypes"/></params>
+</a></typedef>
+	<typedef path="haxe.display.JsonFunctionArgument" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<value>
+		<x path="Null"><a><string><c path="String"/></string></a></x>
+		<meta><m n=":optional"/></meta>
+	</value>
+	<t><t path="haxe.display.JsonType"><d/></t></t>
+	<opt><x path="Bool"/></opt>
+	<name><c path="String"/></name>
+</a></typedef>
+	<typedef path="haxe.display.JsonFunctionSignature" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<ret><t path="haxe.display.JsonType"><d/></t></ret>
+	<args><c path="Array"><t path="haxe.display.JsonFunctionArgument"/></c></args>
+</a></typedef>
+	<abstract path="haxe.display.JsonAnonStatusKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonAnonStatusKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonAnonStatus" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<kind><x path="haxe.display.JsonAnonStatusKind"><c path="haxe.display.JsonAnonStatus.T"/></x></kind>
+	<args><c path="haxe.display.JsonAnonStatus.T"/></args>
+</a></typedef>
+	<typedef path="haxe.display.JsonAnon" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<status><t path="haxe.display.JsonAnonStatus"><d/></t></status>
+	<fields><t path="haxe.display.JsonClassFields"/></fields>
+</a></typedef>
+	<abstract path="haxe.display.JsonTypeKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonTypeKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonType" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<kind><x path="haxe.display.JsonTypeKind"><c path="haxe.display.JsonType.T"/></x></kind>
+	<args><c path="haxe.display.JsonType.T"/></args>
+</a></typedef>
+	<typedef path="haxe.display.JsonTypes" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><c path="Array"><t path="haxe.display.JsonType"><d/></t></c></typedef>
+	<typedef path="haxe.display.JsonTypeParameter" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<name><c path="String"/></name>
+	<constraints><t path="haxe.display.JsonTypes"/></constraints>
+</a></typedef>
+	<typedef path="haxe.display.JsonTypeParameters" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><c path="Array"><t path="haxe.display.JsonTypeParameter"/></c></typedef>
+	<abstract path="haxe.display.JsonBinopKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonBinopKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonBinop" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<kind><x path="haxe.display.JsonBinopKind"><c path="haxe.display.JsonBinop.T"/></x></kind>
+	<args><c path="haxe.display.JsonBinop.T"/></args>
+</a></typedef>
+	<abstract path="haxe.display.JsonUnop" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonUnop_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonExpr" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><t path="haxe.display.JsonTodo"/></typedef>
+	<typedef path="haxe.display.JsonMetadataEntry" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<pos><t path="haxe.display.JsonPos"/></pos>
+	<name><c path="String"/></name>
+	<args><c path="Array"><t path="haxe.display.JsonExpr"/></c></args>
+</a></typedef>
+	<typedef path="haxe.display.JsonMetadata" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><c path="Array"><t path="haxe.display.JsonMetadataEntry"/></c></typedef>
+	<abstract path="haxe.display.JsonTConstantKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonTConstantKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonTConstant" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<kind><x path="haxe.display.JsonTConstantKind"><c path="haxe.display.JsonTConstant.T"/></x></kind>
+	<args><c path="haxe.display.JsonTConstant.T"/></args>
+</a></typedef>
+	<typedef path="haxe.display.JsonTExpr" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><t path="haxe.display.JsonTodo"/></typedef>
+	<abstract path="haxe.display.JsonVarAccessKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonVarAccessKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonVarAccess" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<kind><x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccess.T"/></x></kind>
+	<args><c path="haxe.display.JsonVarAccess.T"/></args>
+</a></typedef>
+	<abstract path="haxe.display.JsonMethodKind" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonMethodKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<abstract path="haxe.display.JsonFieldKindKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonFieldKindKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonFieldKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<kind><x path="haxe.display.JsonFieldKindKind"><c path="haxe.display.JsonFieldKind.T"/></x></kind>
+	<args><c path="haxe.display.JsonFieldKind.T"/></args>
+</a></typedef>
+	<abstract path="haxe.display.JsonClassFieldScope" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonClassFieldScope_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonClassField" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<type><t path="haxe.display.JsonType"><d/></t></type>
+	<scope><x path="haxe.display.JsonClassFieldScope"/></scope>
+	<pos><t path="haxe.display.JsonPos"/></pos>
+	<params><t path="haxe.display.JsonTypeParameters"/></params>
+	<overloads><t path="haxe.display.JsonClassFields"/></overloads>
+	<name><c path="String"/></name>
+	<meta><t path="haxe.display.JsonMetadata"/></meta>
+	<kind><t path="haxe.display.JsonFieldKind"><d/></t></kind>
+	<isPublic><x path="Bool"/></isPublic>
+	<isFinal><x path="Bool"/></isFinal>
+	<expr>
+		<x path="Null"><a><string><c path="String"/></string></a></x>
+		<meta><m n=":optional"/></meta>
+	</expr>
+	<doc><t path="haxe.display.JsonDoc"/></doc>
+</a></typedef>
+	<typedef path="haxe.display.JsonClassFields" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><c path="Array"><t path="haxe.display.JsonClassField"/></c></typedef>
+	<typedef path="haxe.display.JsonClassFieldReference" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><c path="String"/></typedef>
+	<typedef path="haxe.display.JsonEnumField" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<type><t path="haxe.display.JsonType"><d/></t></type>
+	<pos><t path="haxe.display.JsonPos"/></pos>
+	<params><t path="haxe.display.JsonTypeParameters"/></params>
+	<name><c path="String"/></name>
+	<meta><t path="haxe.display.JsonMetadata"/></meta>
+	<index><x path="Int"/></index>
+	<doc><t path="haxe.display.JsonDoc"/></doc>
+</a></typedef>
+	<typedef path="haxe.display.JsonEnumFields" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><c path="Array"><t path="haxe.display.JsonEnumField"/></c></typedef>
+	<abstract path="haxe.display.JsonClassKindKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonClassKindKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonClassKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<kind><x path="haxe.display.JsonClassKindKind"><c path="haxe.display.JsonClassKind.T"/></x></kind>
+	<args><c path="haxe.display.JsonClassKind.T"/></args>
+</a></typedef>
+	<typedef path="haxe.display.JsonClass" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<superClass><x path="Null"><t path="haxe.display.JsonTypePathWithParams"/></x></superClass>
+	<statics><t path="haxe.display.JsonClassFields"/></statics>
+	<overrides><c path="Array"><t path="haxe.display.JsonClassFieldReference"/></c></overrides>
+	<kind><t path="haxe.display.JsonClassKind"><d/></t></kind>
+	<isInterface><x path="Bool"/></isInterface>
+	<isFinal><x path="Bool"/></isFinal>
+	<isExtern><x path="Bool"/></isExtern>
+	<interfaces><c path="Array"><t path="haxe.display.JsonTypePathWithParams"/></c></interfaces>
+	<init><x path="Null"><t path="haxe.display.JsonTExpr"/></x></init>
+	<fields><t path="haxe.display.JsonClassFields"/></fields>
+	<constructor><x path="Null"><t path="haxe.display.JsonClassField"/></x></constructor>
+</a></typedef>
+	<typedef path="haxe.display.JsonEnum" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<isExtern><x path="Bool"/></isExtern>
+	<constructors><t path="haxe.display.JsonEnumFields"/></constructors>
+</a></typedef>
+	<typedef path="haxe.display.JsonTypedef" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a><type><t path="haxe.display.JsonType"><d/></t></type></a></typedef>
+	<typedef path="haxe.display.JsonAbstractBinop" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<op><t path="haxe.display.JsonBinop"><d/></t></op>
+	<field><t path="haxe.display.JsonClassFieldReference"/></field>
+</a></typedef>
+	<typedef path="haxe.display.JsonAbstractUnop" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<postFix><x path="Bool"/></postFix>
+	<op><x path="haxe.display.JsonUnop"/></op>
+	<field><t path="haxe.display.JsonClassFieldReference"/></field>
+</a></typedef>
+	<typedef path="haxe.display.JsonAbstractCast" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<t><t path="haxe.display.JsonType"><d/></t></t>
+	<field><t path="haxe.display.JsonClassFieldReference"/></field>
+</a></typedef>
+	<typedef path="haxe.display.JsonAbstract" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<unops><c path="Array"><t path="haxe.display.JsonAbstractUnop"/></c></unops>
+	<type><t path="haxe.display.JsonType"><d/></t></type>
+	<to><c path="Array"><t path="haxe.display.JsonAbstractCast"/></c></to>
+	<resolve><x path="Null"><t path="haxe.display.JsonClassFieldReference"/></x></resolve>
+	<impl><x path="Null"><t path="haxe.display.JsonClass"/></x></impl>
+	<from><c path="Array"><t path="haxe.display.JsonAbstractCast"/></c></from>
+	<binops><c path="Array"><t path="haxe.display.JsonAbstractBinop"/></c></binops>
+	<array><t path="haxe.display.JsonClassFields"/></array>
+</a></typedef>
+	<abstract path="haxe.display.JsonModuleTypeKind" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._JsonModuleTypes.JsonModuleTypeKind_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.JsonModuleType" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes"><a>
+	<pos><t path="haxe.display.JsonPos"/></pos>
+	<params><t path="haxe.display.JsonTypeParameters"/></params>
+	<pack><c path="Array"><c path="String"/></c></pack>
+	<name><c path="String"/></name>
+	<moduleName><c path="String"/></moduleName>
+	<meta><t path="haxe.display.JsonMetadata"/></meta>
+	<kind><x path="haxe.display.JsonModuleTypeKind"><c path="haxe.display.JsonModuleType.T"/></x></kind>
+	<isPrivate><x path="Bool"/></isPrivate>
+	<doc><t path="haxe.display.JsonDoc"/></doc>
+	<args><c path="haxe.display.JsonModuleType.T"/></args>
+</a></typedef>
+	<typedef path="haxe.display.JsonModuleTypes" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/JsonModuleTypes.hx"><c path="Array"><t path="haxe.display.JsonModuleType"><d/></t></c></typedef>
+	<typedef path="haxe.display.Position" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Position.hx">
+		<a>
+			<line>
+				<x path="Int"/>
+				<haxe_doc>Line position in a document (1-based).</haxe_doc>
+			</line>
+			<character>
+				<x path="Int"/>
+				<haxe_doc>Character offset on a line in a document (1-based).</haxe_doc>
+			</character>
+		</a>
+		<haxe_doc>Position in a text document expressed as 1-based line and character offset.</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.Range" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Position.hx" module="haxe.display.Position">
+		<a>
+			<start>
+				<t path="haxe.display.Position"/>
+				<haxe_doc>The range's start position</haxe_doc>
+			</start>
+			<end>
+				<t path="haxe.display.Position"/>
+				<haxe_doc>The range's end position</haxe_doc>
+			</end>
+		</a>
+		<haxe_doc>A range in a text document expressed as (1-based) start and end positions.</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.Location" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Position.hx" module="haxe.display.Position">
+		<a>
+			<range><t path="haxe.display.Range"/></range>
+			<file><x path="haxe.display.FsPath"/></file>
+		</a>
+		<haxe_doc>Represents a location inside a resource, such as a line inside a text file.</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.InitializeParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><a>
+	<supportsResolve final="1" set="null">
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</supportsResolve>
+	<maxCompletionItems final="1" set="null">
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The maximum number of completion items to return</haxe_doc>
+	</maxCompletionItems>
+	<exclude final="1" set="null">
+		<x path="Null"><c path="Array"><c path="String"/></c></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>dot paths to exclude from readClassPaths / toplevel completion</haxe_doc>
+	</exclude>
+</a></typedef>
+	<typedef path="haxe.display.Version" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<a>
+			<pre final="1" set="null">
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</pre>
+			<patch final="1" set="null"><x path="Int"/></patch>
+			<minor final="1" set="null"><x path="Int"/></minor>
+			<major final="1" set="null"><x path="Int"/></major>
+			<build final="1" set="null">
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</build>
+		</a>
+		<haxe_doc>Represents a semantic version, see https://semver.org/.</haxe_doc>
+	</typedef>
+	<typedef path="haxe.display.InitializeResult" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><t path="haxe.display.Response"><a>
+	<protocolVersion final="1" set="null"><t path="haxe.display.Version"/></protocolVersion>
+	<methods final="1" set="null"><c path="Array"><c path="String"/></c></methods>
+	<haxeVersion final="1" set="null"><t path="haxe.display.Version"/></haxeVersion>
+</a></t></typedef>
+	<typedef path="haxe.display.Timer" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><a>
+	<time final="1" set="null"><x path="Float"/></time>
+	<percentTotal final="1" set="null">
+		<x path="Null"><x path="Float"/></x>
+		<meta><m n=":optional"/></meta>
+	</percentTotal>
+	<percentParent final="1" set="null">
+		<x path="Null"><x path="Float"/></x>
+		<meta><m n=":optional"/></meta>
+	</percentParent>
+	<path final="1" set="null">
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</path>
+	<name final="1" set="null"><c path="String"/></name>
+	<info final="1" set="null">
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</info>
+	<children final="1" set="null">
+		<x path="Null"><c path="Array"><t path="haxe.display.Timer"/></c></x>
+		<meta><m n=":optional"/></meta>
+	</children>
+	<calls final="1" set="null">
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+	</calls>
+</a></typedef>
+	<typedef path="haxe.display.Response" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><a>
+	<timestamp final="1" set="null">
+		<x path="Null"><x path="Float"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>UNIX timestamp at the moment the data was sent.</haxe_doc>
+	</timestamp>
+	<timers final="1" set="null">
+		<x path="Null"><t path="haxe.display.Timer"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Only sent if `--times` is enabled.</haxe_doc>
+	</timers>
+	<result final="1" set="null">
+		<x path="Null"><c path="haxe.display.Response.T"/></x>
+		<meta><m n=":optional"/></meta>
+	</result>
+</a></typedef>
+	<typedef path="haxe.display.FileParams" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><a><file><x path="haxe.display.FsPath"/></file></a></typedef>
+	<abstract path="haxe.display.HaxeRequestMethod" params="TParams:TResponse" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<impl><class path="haxe.display._Protocol.HaxeRequestMethod_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol" final="1"><meta><m n=":keep"/></meta></class></impl>
+	</abstract>
+	<abstract path="haxe.display.HaxeNotificationMethod" params="TParams" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<impl><class path="haxe.display._Protocol.HaxeNotificationMethod_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol" final="1"><meta><m n=":keep"/></meta></class></impl>
+	</abstract>
+	<typedef path="haxe.display.HaxeResponseErrorData" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><c path="Array"><a>
+	<severity><x path="haxe.display.HaxeResponseErrorSeverity"/></severity>
+	<message><c path="String"/></message>
+	<location>
+		<x path="Null"><t path="haxe.display.Location"/></x>
+		<meta><m n=":optional"/></meta>
+	</location>
+</a></c></typedef>
+	<abstract path="haxe.display.HaxeResponseErrorSeverity" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<this><x path="Int"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.display._Protocol.HaxeResponseErrorSeverity_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":enum"/>
+</meta></class></impl>
+	</abstract>
+	<abstract path="haxe.ds.HashMap" params="K:V" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/ds/HashMap.hx">
+		<this><c path="haxe.ds._HashMap.HashMapData">
+	<c path="haxe.ds.HashMap.K"/>
+	<c path="haxe.ds.HashMap.V"/>
+</c></this>
+		<haxe_doc>HashMap allows mapping of hashable objects to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+		<impl><class path="haxe.ds._HashMap.HashMap_Impl_" params="" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/ds/HashMap.hx" private="1" module="haxe.ds.HashMap" final="1"><meta><m n=":keep"/></meta></class></impl>
+	</abstract>
+	<class path="haxe.ds.IntMap" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/js/_std/haxe/ds/IntMap.hx">
+		<implements path="haxe.IMap">
+			<x path="Int"/>
+			<c path="haxe.ds.IntMap.T"/>
+		</implements>
+		<h><d/></h>
+		<remove public="1" set="method" line="44">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="51">
+			<f a=""><t path="Iterator"><x path="Int"/></t></f>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<new public="1" get="inline" set="null" line="28">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new IntMap.</haxe_doc>
+		</new>
+		<haxe_doc>IntMap allows mapping of Int keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
 	<abstract path="haxe.ds.ReadOnlyArray" params="T" file="/home/nanjizalmac/haxe/versions/4.1.5/std/haxe/ds/ReadOnlyArray.hx">
 		<from><icast><c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c></icast></from>
 		<this><c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c></this>
